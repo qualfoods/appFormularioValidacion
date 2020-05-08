@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <form [formGroup]="registro" (ngSubmit)="registrar()">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Nombre" formControlName="nombre">
+          <span class="ayuda" *ngIf="!registro.get('nombre').valid && registro.get('nombre').touched">
+
+              <span *ngIf="registro.get('nombre').errors['required']">El nombre es requerido.</span>
+              <span *ngIf="!registro.get('nombre').errors['required'] && registro.get('nombre').errors['nombreProhibido']">
+                El nombre no es válido.</span>
+          </span>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-warning" (click)="crear()">Crear nombre</button>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Apellido" formControlName="apellido">
+          <span class="ayuda" *ngIf="!registro.get('apellido').valid && registro.get('apellido').touched">
+            El apellido es requerido.</span>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Correo" formControlName="correo">
+          <span class="ayuda" *ngIf="!registro.get('correo').valid && registro.get('correo').touched">
+
+            <span *ngIf="registro.get('correo').errors['required']">El correo es requerido.</span>
+            <span *ngIf="!registro.get('correo').errors['required'] && registro.get('correo').errors['email']">
+              El correo debe tener formato válido.</span>
+
+          </span>
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" placeholder="Contraseña" formControlName="contrasena">
+          <span class="ayuda" *ngIf="!registro.get('contrasena').valid && registro.get('contrasena').touched">
+            La contraseña es requerida.</span>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-success">Registrar</button>
+          <button class="btn btn-danger" (click)="reseteo()">Resetear</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

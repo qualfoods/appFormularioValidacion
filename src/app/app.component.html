@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <form (ngSubmit)="registrar()" #f="ngForm">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Nombre" name="nombre" ngModel required #nombre="ngModel">
+          <span class="ayuda" *ngIf="!nombre.valid && nombre.touched">El nombre es requerido</span>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Apellido" name="apellido" ngModel required #apellido="ngModel">
+          <span class="ayuda" *ngIf="!apellido.valid && apellido.touched">El apellido es requerido</span>
+        </div>
+        <div class="form-group">
+          <input type="email" class="form-control" placeholder="Correo" name="correo" ngModel required email #correo="ngModel">
+          <span class="ayuda" *ngIf="!correo.valid && correo.touched">
+
+              <span *ngIf="correo.errors['required']">El correo es requerido.</span>
+              <span *ngIf="!correo.errors['required'] && correo.errors['email']">El correo debe ser válido.</span>
+
+          </span>
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" placeholder="Contraseña" name="contrasena" ngModel required #contrasena="ngModel">
+          <span class="ayuda" *ngIf="!contrasena.valid && contrasena.touched">La contrasena es requerida</span>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-success" [disabled]="!f.valid">Registrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

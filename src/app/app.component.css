@@ -1,0 +1,10 @@
+input.ng-invalid.ng-touched {
+    border: 1px solid red
+}
+
+.ayuda {
+    color: red;
+    font-style: italic;
+    font-size: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
